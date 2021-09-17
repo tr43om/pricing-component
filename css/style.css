@@ -30,11 +30,6 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
   font-family: "Manrope", sans-serif;
   background: no-repeat url("../images/bg-pattern.svg");
   background-size: cover;
@@ -42,6 +37,7 @@ body {
   font-size: 1.5rem;
   line-height: 1.8;
   position: relative;
+  padding-bottom: 10rem;
 }
 
 /* Call to action */
@@ -50,17 +46,15 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  height: 30vh;
-  margin: 7rem 0;
-  width: 100%;
+  height: 20rem;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
   background: no-repeat url("../images/pattern-circles.svg");
   background-size: contain;
   background-position: 50% -25%;
 }
 
 .cta__title {
-  text-align: center;
-
   font-size: 2.5rem;
   color: var(--dark-desaturated-blue);
 }
@@ -74,21 +68,30 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 4rem;
-  justify-content: space-around;
   background-color: var(--white);
-  width: 85vw;
-  max-width: 70rem;
-  padding: 3rem;
+  width: 90vw;
+  max-width: 90rem;
+  padding: 2.5rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   overflow: hidden;
-  margin-bottom: 5rem;
+  margin-inline: auto;
+  position: relative;
+}
+
+.card__group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
 }
 
 .card__views {
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   color: var(--grayish-blue);
+  order: 1;
 }
 
 .card__component {
@@ -101,14 +104,25 @@ body {
   margin-left: -4rem;
 }
 
+.card__component--price {
+  order: 3;
+}
+
 .card__price {
   font-size: 4rem;
   font-weight: 900;
   color: var(--dark-desaturated-blue);
-  animation-name: fadeInDown;
-  animation-duration: 0.6s;
 }
 
+.card__price--bounceIn {
+  animation-name: bounceIn;
+  animation-duration: 0.3s;
+}
+
+.card__price--flipInX {
+  animation-name: flipInX;
+  animation-duration: 0.6s;
+}
 .card__billing {
   color: var(--grayish-blue);
   animation-name: fadeInRight;
@@ -130,6 +144,11 @@ body {
   border-radius: 2rem;
   position: relative;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.card__switch + label:hover {
+  background-color: var(--soft-cyan);
 }
 
 .card__switch + label::after {
@@ -170,36 +189,36 @@ body {
 /* Slider */
 .card__slider {
   width: 100%;
+  border-radius: 10px;
   height: 1rem;
   -webkit-appearance: none;
   background: var(--light-grayish-blue-1);
   outline: none;
+  order: 2;
 }
 
 .card__slider::-moz-range-thumb {
   -webkit-appearance: none;
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
   background: no-repeat center url("../images/icon-slider.svg"),
     var(--strong-cyan);
   cursor: pointer;
   border: none;
-  outline: none;
   transition: 0.2s;
   box-shadow: 0 1rem 2rem var(--soft-cyan);
 }
 
 .card__slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
   background: no-repeat center url("../images/icon-slider.svg"),
     var(--strong-cyan);
   cursor: pointer;
   border: none;
-  outline: none;
   transition: 0.2s;
 }
 
@@ -219,12 +238,105 @@ body {
   height: 2px;
 }
 
+.card__component--features {
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.card__item {
+  color: var(--grayish-blue);
+}
+
+.card__item::before {
+  content: "";
+  display: inline-block;
+  height: 1.2rem;
+  width: 1.2rem;
+  background: no-repeat url("../images/icon-check.svg");
+  background-position: bottom;
+  background-size: contain;
+  margin-right: 2rem;
+}
+
+.card__btn {
+  all: unset;
+  display: flex;
+  padding: 1.5rem 5rem;
+  background-color: var(--dark-desaturated-blue);
+  color: var(--pale-blue);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 2rem;
+}
+
+.card__btn:hover {
+  color: var(--white);
+  transform: scale(1.02);
+}
 /* Attribution */
 .attribution {
   position: absolute;
   width: 100%;
   margin-inline: auto;
-  bottom: 0;
+  bottom: 1rem;
+  color: var(--grayish-blue);
 }
 
-/* Animations */
+.attribution a {
+  color: var(--light-red);
+}
+
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 70%;
+  }
+  .card {
+    padding: 7rem;
+  }
+  .card__group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .card__views {
+    flex-basis: 50%;
+  }
+
+  .card__component--price {
+    display: flex;
+    flex-basis: 50%;
+    order: 2;
+    justify-content: flex-end;
+  }
+
+  .card__slider {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .card__component--features {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card__list {
+    align-items: flex-start;
+  }
+
+  .card__btn {
+    align-self: flex-end;
+  }
+}

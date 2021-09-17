@@ -43,13 +43,17 @@
     </header>
 
     <section class="card">
-      <div class="card__wrapper"></div>
-        <h3 class="card__views">100K Pageviews</h3>
-        <input class="card__slider" type="range" value="14" min="0" max="32" step='1' onchange="updateSlider(this.value)" oninput="updateSlider(this.value)" autocomplete="off"/>
+      <div class="card__group">
+        
+          <h3 class="card__views">100K Pageviews</h3>
         <div class="card__component card__component--price" >
           <span id="rangeValue" class="card__price">14,00 $</span>
           <span class="card__billing">/ month</span>
         </div>
+      
+        <input class="card__slider" type="range" value="16" min="0" max="32" step='1'  oninput="updateSlider(this.value)" autocomplete="off"/>
+      </div>
+        
         <div class="card__component  card__component--toggle">
           <span class="card__billing card__billing--monthly">Monthly Billing</span>
           <input type="checkbox" class="card__switch" id="switch"  autocomplete="off">  
@@ -57,18 +61,26 @@
           <span class="card__billing card__billing--yearly">Yearly Billing</span>
         </div>
         <div class="card__divider"></div>
+        <div class="card__component card__component--features">
+          <ul class="card__list">
+            <li class="card__item">Unlimited websites</li>
+            <li class="card__item">100% data ownership</li>
+            <li class="card__item">Email reports</li>
+          </ul> 
+          <input class="card__btn" type="submit" value="Start my trial"/> 
+        </div>
       </div>
 
-        Yearly Billing 25% discount Unlimited websites
-      100% data ownership Email reports Start my trial
-    </section>
-
-    <div class="attribution">
+          
+       <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="">tr43om</a>.
     </div>
+    </section>
+
+    
 
     <script type='text/javascript' src="js/script.js"></script>
   

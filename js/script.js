@@ -11,21 +11,29 @@ const formattedPrice = (value) =>
   }).format(Number(isYearly ? Number(value * 12 * 0.75) : value));
 
 // Sets initial state to slider and defaul value
-updateSlider(14);
+updateSlider(16);
 
 // Updates price and billing
 switchLabel.addEventListener("transitionend", (e) => {
-  if (e.propertyName !== "left") updateToggle();
-  updateSlider(slider.value);
+  if (e.propertyName === "left") updateToggle();
 });
 
 // Update slider
 function updateSlider(value) {
-  const priceLabel = document.getElementById("rangeValue");
+  const priceLabel = document.querySelector(".card__price");
   const viewsLabel = document.querySelector(".card__views");
   // Display price
   (function displayPrice() {
-    priceLabel.textContent = formattedPrice(value);
+    const priceValue = slider.value;
+
+    const price = document.createElement("span");
+    price.id = "rangeValue";
+    price.className = "card__price card__price--bounceIn";
+
+    price.textContent = formattedPrice(priceValue);
+
+    priceContainer.appendChild(price);
+    priceContainer.replaceChild(price, priceLabel);
   })();
 
   // Slider track background
@@ -68,7 +76,7 @@ function updateToggle() {
 
     const price = document.createElement("span");
     price.id = "rangeValue";
-    price.className = "card__price";
+    price.className = "card__price card__price--flipInX";
     price.textContent = formattedPrice(priceValue);
 
     priceContainer.appendChild(price);
