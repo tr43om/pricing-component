@@ -115,18 +115,33 @@ body {
 }
 
 .card__price--bounceIn {
-  animation-name: bounceIn;
+  -webkit-animation: bounceIn;
+  -moz-animation: bounceIn;
+  -o-animation: bounceIn;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
 
 .card__price--flipInX {
-  animation-name: flipInX;
-  animation-duration: 0.6s;
+  -webkit-animation: flipInX;
+  -moz-animation: flipInX;
+  -o-animation: flipInX;
+  -webkit-animation-duration: 0.7s;
+  -moz-animation-duration: 0.7s;
+  -o-animation-duration: 0.7s;
+  animation-duration: 0.7s;
 }
 .card__billing {
   color: var(--grayish-blue);
-  animation-name: fadeInRight;
-  animation-duration: 0.6s;
+  -webkit-animation: fadeInRight;
+  -moz-animation: fadeInRight;
+  -o-animation: fadeInRight;
+  -webkit-animation-duration: 0.7s;
+  -moz-animation-duration: 0.7s;
+  -o-animation-duration: 0.7s;
+  animation-duration: 0.7s;
 }
 
 .card__switch {
