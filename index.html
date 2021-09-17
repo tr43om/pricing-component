@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Interactive pricing component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="cta">
+      <h1 class="cta__title">Simple, traffic-based pricing</h1>
+
+      <p class="cta__desc">
+        Sign-up for our 30-day trial. <br />
+        No credit card required.
+      </p>
+    </header>
+
+    <section class="card">
+      <div class="card__wrapper"></div>
+        <h3 class="card__views">100K Pageviews</h3>
+        <input class="card__slider" type="range" value="14" min="0" max="32" step='1' onchange="updateSlider(this.value)" oninput="updateSlider(this.value)" autocomplete="off"/>
+        <div class="card__component card__component--price" >
+          <span id="rangeValue" class="card__price">14,00 $</span>
+          <span class="card__billing">/ month</span>
+        </div>
+        <div class="card__component  card__component--toggle">
+          <span class="card__billing card__billing--monthly">Monthly Billing</span>
+          <input type="checkbox" class="card__switch" id="switch"  autocomplete="off">  
+          <label for="switch"></label>
+          <span class="card__billing card__billing--yearly">Yearly Billing</span>
+        </div>
+        <div class="card__divider"></div>
+      </div>
+
+        Yearly Billing 25% discount Unlimited websites
+      100% data ownership Email reports Start my trial
+    </section>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script type='text/javascript' src="js/script.js"></script>
+  
+  </body>
+</html>
